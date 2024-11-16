@@ -1,0 +1,100 @@
+.main-screen {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background: linear-gradient(180deg, #0a0a0a, #1e1e1e);
+  color: #ffd700;
+
+  .top-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: #161616; // Fundo escuro para contraste
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); // Linha sutil para separação
+    font-size: 1.2rem;
+    color: #ffd700; // Texto amarelo
+
+    .game-date,
+    .real-life-balance,
+    .investment-balance {
+      flex: 1;
+      text-align: center;
+      font-weight: bold;
+    }
+  }
+
+  .middle-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1; // Ocupa todo o espaço vertical disponível
+    padding: 2rem;
+
+    .bitcoin-chart {
+      width: 80%;
+      max-width: 600px;
+      height: 300px;
+      background: #2c3e50; // Fundo do gráfico
+      border: 2px solid #ffd700; // Borda em amarelo
+      border-radius: 12px;
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5); // Profundidade
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #fff; // Texto interno branco para placeholder
+    }
+  }
+
+  .bottom-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    background-color: #161616; // Combina com o topo
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.3); // Linha superior para separação
+
+    .pause-button {
+      font-size: 1.5rem;
+      padding: 1rem 2rem;
+      background-color: #ffd700; // Fundo amarelo chamativo
+      color: #161616; // Texto escuro para contraste
+      border: none;
+      border-radius: 25px;
+      cursor: pointer;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      transition: all 0.3s ease;
+
+      &:hover {
+        background-color: #e6c300; // Tom mais escuro de amarelo
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+        transform: scale(1.05); // Efeito de hover
+      }
+
+      &:active {
+        background-color: #cca600;
+        transform: scale(0.95);
+        box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    .top-section {
+      font-size: 1rem;
+      padding: 0.8rem 1.5rem;
+    }
+
+    .middle-section {
+      .bitcoin-chart {
+        width: 90%;
+        height: 250px;
+      }
+    }
+
+    .bottom-section .pause-button {
+      font-size: 1.2rem;
+      padding: 0.8rem 1.6rem;
+    }
+  }
+}

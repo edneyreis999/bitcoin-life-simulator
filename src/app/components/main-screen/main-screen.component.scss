@@ -3,7 +3,14 @@
   flex-direction: column;
   height: 100vh;
   background: linear-gradient(180deg, #0a0a0a, #1e1e1e);
+  overflow: hidden; // Remove rolagem interna
   color: #ffd700;
+
+  .top-section,
+  .bottom-section {
+    flex-shrink: 0; // Impede que se redimensionem
+    padding: 1rem;
+  }
 
   .top-section {
     display: flex;
@@ -53,6 +60,11 @@
     padding: 1rem;
     background-color: #161616; // Combina com o topo
     box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.3); // Linha superior para separação
+
+    // Adiciona margem extra para evitar a sobreposição
+    margin-bottom: calc(
+      env(safe-area-inset-bottom) + 4rem
+    ); // Adiciona a área segura do iOS
 
     .pause-button {
       font-size: 1.5rem;

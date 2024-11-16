@@ -89,6 +89,23 @@
         box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
       }
     }
+
+    .event-button-temp {
+      position: absolute;
+      bottom: 1rem;
+      right: 1rem;
+      padding: 0.5rem 1rem;
+      font-size: 1rem;
+      background: #3498db;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+
+      &:hover {
+        background: #2980b9;
+      }
+    }
   }
 
   @media (max-width: 768px) {

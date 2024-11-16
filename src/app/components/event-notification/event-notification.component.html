@@ -1,1 +1,70 @@
-<p>event-notification works!</p>
+<div class="overlay" (click)="closeEvent()" *ngIf="isVisible"></div>
+<div class="event-notification" *ngIf="isVisible">
+  <!-- Cabeçalho -->
+  <div class="header">
+    <h2>{{ eventTitle }}</h2>
+    <button
+      class="close-button"
+      aria-label="Close Event"
+      (click)="closeEvent()"
+    >
+      X
+    </button>
+  </div>
+
+  <!-- Corpo -->
+  <div class="body">
+    <p class="event-description">{{ eventDescription }}</p>
+
+    <!-- Slider para Transferência de Fundos -->
+    <div class="transfer-funds">
+      <h3>Transfer Funds</h3>
+      <div class="balances">
+        <div class="balance">Real Life: ${{ realLifeBalance }}</div>
+        <div class="balance">Investment: ${{ investmentBalance }}</div>
+      </div>
+      <input
+        type="range"
+        min="0"
+        max="100"
+        [(ngModel)]="transferPercentage"
+        (input)="updateTransferValues()"
+        class="slider"
+      />
+      <div class="transfer-details">
+        <p>Amount to Transfer: ${{ transferAmount }}</p>
+        <p>Transaction Fee: ${{ transactionFee }}</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Rodapé com Botões -->
+  <div class="footer">
+    <!-- Evento Obrigatório -->
+    <button
+      *ngIf="type === 'mandatory'"
+      class="event-button"
+      [disabled]="!canAcceptEvent"
+      (click)="acceptEvent()"
+    >
+      OK
+    </button>
+
+    <!-- Evento Opcional -->
+    <button
+      *ngIf="type === 'optional'"
+      class="event-button decline"
+      (click)="declineEvent()"
+    >
+      Decline
+    </button>
+    <button
+      *ngIf="type === 'optional'"
+      class="event-button accept"
+      [disabled]="!canAcceptEvent"
+      (click)="acceptEvent()"
+    >
+      Accept
+    </button>
+  </div>
+</div>

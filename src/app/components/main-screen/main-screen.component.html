@@ -19,4 +19,14 @@
     <button class="pause-button" (click)="openPauseMenu()">Pause</button>
     <app-pause-menu></app-pause-menu>
   </div>
+  <button (click)="showEventNotification()" class="event-button-temp">
+    Trigger Event Notification
+  </button>
+  <app-event-notification
+    [eventTitle]="'Random Event'"
+    [eventDescription]="'Car repair required: $500'"
+    [realLifeBalance]="1000"
+    [investmentBalance]="5000"
+    [type]="'optional'"
+  ></app-event-notification>
 </div>

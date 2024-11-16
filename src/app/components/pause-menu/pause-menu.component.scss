@@ -104,3 +104,61 @@
     color: #aaa;
   }
 }
+
+.slider {
+  -webkit-appearance: none; // Remove o estilo padrão do slider
+  appearance: none;
+  width: 100%; // Ocupa toda a largura disponível
+  height: 30px; // Altura da barra aumentada
+  background: #3e3e3e; // Fundo da barra
+  border-radius: 15px; // Bordas arredondadas para a barra
+  outline: none; // Remove a borda ao focar
+  transition: opacity 0.2s;
+
+  &:hover {
+    opacity: 1; // Aumenta a opacidade ao passar o mouse
+  }
+
+  // Thumb do slider (retângulo)
+  &::-webkit-slider-thumb {
+    -webkit-appearance: none; // Remove o estilo padrão
+    appearance: none;
+    width: 30px; // Largura do retângulo
+    height: 30px; // Altura do retângulo
+    background: #ffd700; // Amarelo para contraste
+    border-radius: 4px; // Leve arredondamento nos cantos
+    cursor: pointer; // Mostra o cursor de mão
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); // Sombra para profundidade
+    transition: transform 0.2s;
+
+    &:hover {
+      transform: scale(1.1); // Aumenta o tamanho ao passar o mouse
+    }
+  }
+
+  &::-moz-range-thumb {
+    width: 30px;
+    height: 30px;
+    background: #ffd700;
+    border-radius: 4px;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+
+  &::-ms-thumb {
+    width: 30px;
+    height: 30px;
+    background: #ffd700;
+    border-radius: 4px;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+}

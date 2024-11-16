@@ -1,1 +1,43 @@
-<p>pause-menu works!</p>
+<div class="overlay" (click)="closeMenu()" *ngIf="isVisible"></div>
+<div class="pause-menu" *ngIf="isVisible">
+  <!-- Cabeçalho -->
+  <div class="header">
+    <h2>Pause Menu</h2>
+    <button class="close-button" aria-label="Close Menu" (click)="closeMenu()">
+      X
+    </button>
+  </div>
+
+  <!-- Corpo -->
+  <div class="body">
+    <!-- Transfer Funds -->
+    <div class="transfer-funds">
+      <h3>Transfer Funds</h3>
+      <div class="balances">
+        <div class="balance">Real Life: ${{ realLifeBalance }}</div>
+        <div class="balance">Investment: ${{ investmentBalance }}</div>
+      </div>
+      <input
+        type="range"
+        min="0"
+        max="100"
+        [(ngModel)]="transferPercentage"
+        (input)="updateTransferValues()"
+      />
+      <div class="transfer-details">
+        <p>Amount to Transfer: ${{ transferAmount }}</p>
+        <p>Transaction Fee: ${{ transactionFee }}</p>
+      </div>
+    </div>
+
+    <!-- Resume Game -->
+    <div class="resume-game">
+      <button class="resume-button" (click)="closeMenu()">Resume Game</button>
+    </div>
+  </div>
+
+  <!-- Rodapé -->
+  <div class="footer">
+    <p>Game Paused</p>
+  </div>
+</div>

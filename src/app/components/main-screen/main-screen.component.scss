@@ -1,10 +1,12 @@
+@import "../../../styles.scss"; // Certifique-se de que o caminho está correto
+
 .main-screen {
   display: flex;
   flex-direction: column;
   height: 100vh;
-  background: linear-gradient(180deg, #0a0a0a, #1e1e1e);
+  background: linear-gradient(180deg, #0a0a0a, $background-dark);
   overflow: hidden; // Remove rolagem interna
-  color: #ffd700;
+  color: $primary-color;
 
   .top-section,
   .bottom-section {
@@ -17,17 +19,17 @@
     justify-content: space-between;
     align-items: center;
     padding: 1rem 2rem;
-    background-color: #161616; // Fundo escuro para contraste
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); // Linha sutil para separação
+    background-color: $background-dark; // Usando variável global
+    box-shadow: $box-shadow; // Linha sutil para separação
     font-size: 1.2rem;
-    color: #ffd700; // Texto amarelo
+    color: $primary-color; // Texto amarelo
 
     .game-date,
     .real-life-balance,
     .investment-balance {
       flex: 1;
       text-align: center;
-      font-weight: bold;
+      @include text-style(1rem, $primary-color, bold);
     }
   }
 
@@ -42,14 +44,14 @@
       width: 80%;
       max-width: 600px;
       height: 300px;
-      background: #2c3e50; // Fundo do gráfico
-      border: 2px solid #ffd700; // Borda em amarelo
+      background: $text-color-dark; // Fundo do gráfico
+      border: 2px solid $primary-color; // Borda em amarelo
       border-radius: 12px;
-      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5); // Profundidade
+      box-shadow: $box-shadow; // Profundidade
       display: flex;
       justify-content: center;
       align-items: center;
-      color: #fff; // Texto interno branco para placeholder
+      color: $text-color-light; // Texto interno branco para placeholder
     }
   }
 
@@ -58,8 +60,8 @@
     justify-content: center;
     align-items: center;
     padding: 1rem;
-    background-color: #161616; // Combina com o topo
-    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.3); // Linha superior para separação
+    background-color: $background-dark; // Combina com o topo
+    box-shadow: $box-shadow; // Linha superior para separação
 
     // Adiciona margem extra para evitar a sobreposição
     margin-bottom: calc(
@@ -67,24 +69,21 @@
     ); // Adiciona a área segura do iOS
 
     .pause-button {
+      @include button-style(
+        $primary-color,
+        $background-dark,
+        darken($primary-color, 10%)
+      ); // Botão reutilizando o mixin
       font-size: 1.5rem;
-      padding: 1rem 2rem;
-      background-color: #ffd700; // Fundo amarelo chamativo
-      color: #161616; // Texto escuro para contraste
-      border: none;
       border-radius: 25px;
-      cursor: pointer;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-      transition: all 0.3s ease;
 
       &:hover {
-        background-color: #e6c300; // Tom mais escuro de amarelo
         box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
         transform: scale(1.05); // Efeito de hover
       }
 
       &:active {
-        background-color: #cca600;
         transform: scale(0.95);
         box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
       }
@@ -94,17 +93,13 @@
       position: absolute;
       bottom: 1rem;
       right: 1rem;
-      padding: 0.5rem 1rem;
+      @include button-style(
+        $secondary-color,
+        $text-color-light,
+        darken($secondary-color, 10%)
+      ); // Botão temporário reutilizando o mixin
       font-size: 1rem;
-      background: #3498db;
-      color: #fff;
-      border: none;
       border-radius: 5px;
-      cursor: pointer;
-
-      &:hover {
-        background: #2980b9;
-      }
     }
   }
 

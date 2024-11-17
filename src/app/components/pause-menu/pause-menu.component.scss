@@ -1,10 +1,12 @@
+@import "../../../styles.scss"; // Certifique-se de que o caminho está correto
+
 .overlay {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.6); // Fundo translúcido
+  background: $overlay-color; // Fundo translúcido
   z-index: 10;
 }
 
@@ -13,13 +15,13 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background: #1e1e1e; // Fundo do menu
-  color: #ffd700; // Texto em amarelo
+  background: $background-dark; // Fundo do menu
+  color: $primary-color; // Texto em amarelo
   width: 90%;
   max-width: 400px;
   padding: 1.5rem;
   border-radius: 12px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  box-shadow: $box-shadow; // Usando a sombra global
   z-index: 20;
 
   display: flex;
@@ -32,17 +34,16 @@
     align-items: center;
 
     h2 {
-      font-size: 1.5rem;
+      @include text-style(1.5rem, $primary-color); // Usando o mixin de texto
       margin: 0;
     }
 
     .close-button {
-      background: transparent;
-      color: #ffd700;
+      @include button-style(
+        transparent,
+        $primary-color
+      ); // Botão reutilizando mixin
       font-size: 1.2rem;
-      border: none;
-      cursor: pointer;
-      transition: transform 0.2s;
 
       &:hover {
         transform: scale(1.2);
@@ -63,17 +64,25 @@
       .balances {
         display: flex;
         justify-content: space-between;
-        font-size: 1rem;
+        @include text-style(
+          1rem,
+          $text-color-light
+        ); // Reutilizando estilos globais
       }
 
-      input[type="range"] {
-        width: 100%;
-        accent-color: #ffd700;
+      .slider {
+        margin-top: 1rem;
+        @include slider-style(
+          $primary-color,
+          $text-color-dark,
+          30px,
+          15px,
+          0 2px 5px rgba(0, 0, 0, 0.3)
+        ); // Slider reutilizando o mixin ajustado
       }
 
       .transfer-details {
-        font-size: 0.9rem;
-        color: #ecf0f1;
+        @include text-style(0.9rem, $text-color-light);
       }
     }
 
@@ -82,14 +91,12 @@
       justify-content: center;
 
       .resume-button {
-        padding: 0.8rem 1.5rem;
-        background-color: #ffd700;
-        color: #161616;
-        border: none;
-        border-radius: 8px;
-        cursor: pointer;
+        @include button-style(
+          $primary-color,
+          $background-dark,
+          darken($primary-color, 10%)
+        ); // Botão reutilizando mixin
         font-size: 1.2rem;
-        transition: transform 0.2s;
 
         &:hover {
           transform: scale(1.1);
@@ -100,65 +107,9 @@
 
   .footer {
     text-align: center;
-    font-size: 0.9rem;
-    color: #aaa;
-  }
-}
-
-.slider {
-  -webkit-appearance: none; // Remove o estilo padrão do slider
-  appearance: none;
-  width: 100%; // Ocupa toda a largura disponível
-  height: 30px; // Altura da barra aumentada
-  background: #3e3e3e; // Fundo da barra
-  border-radius: 15px; // Bordas arredondadas para a barra
-  outline: none; // Remove a borda ao focar
-  transition: opacity 0.2s;
-
-  &:hover {
-    opacity: 1; // Aumenta a opacidade ao passar o mouse
-  }
-
-  // Thumb do slider (retângulo)
-  &::-webkit-slider-thumb {
-    -webkit-appearance: none; // Remove o estilo padrão
-    appearance: none;
-    width: 30px; // Largura do retângulo
-    height: 30px; // Altura do retângulo
-    background: #ffd700; // Amarelo para contraste
-    border-radius: 4px; // Leve arredondamento nos cantos
-    cursor: pointer; // Mostra o cursor de mão
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); // Sombra para profundidade
-    transition: transform 0.2s;
-
-    &:hover {
-      transform: scale(1.1); // Aumenta o tamanho ao passar o mouse
-    }
-  }
-
-  &::-moz-range-thumb {
-    width: 30px;
-    height: 30px;
-    background: #ffd700;
-    border-radius: 4px;
-    cursor: pointer;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-
-    &:hover {
-      transform: scale(1.1);
-    }
-  }
-
-  &::-ms-thumb {
-    width: 30px;
-    height: 30px;
-    background: #ffd700;
-    border-radius: 4px;
-    cursor: pointer;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-
-    &:hover {
-      transform: scale(1.1);
-    }
+    @include text-style(
+      0.9rem,
+      #aaa
+    ); // Usando mixin de texto para uniformidade
   }
 }

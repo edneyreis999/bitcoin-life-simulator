@@ -23,10 +23,6 @@ export class EventNotificationComponent {
 
   isVisible = false;
 
-  ngOnInit() {
-    console.log('Event Notification Component Initialized');
-  }
-
   // Lógica para transferir valores
   updateTransferValues() {
     const total = this.realLifeBalance + this.investmentBalance;

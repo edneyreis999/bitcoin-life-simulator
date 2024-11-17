@@ -8,114 +8,14 @@ body {
   overflow: hidden; // Evita rolagem
 }
 
+/* Fonte global */
+body {
+  font-family: "Roboto", sans-serif;
+}
+
 #root {
   display: flex;
   flex-direction: column;
   width: 100%;
   height: 100%;
-}
-
-// Cores
-$background-dark: #1e1e1e;
-$background-light: #ecf0f1;
-$primary-color: #ffd700;
-$secondary-color: #3498db;
-$text-color-dark: #2c3e50;
-$text-color-light: #ffffff;
-$overlay-color: rgba(0, 0, 0, 0.6);
-
-// Sombreamento
-$box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
-
-// Botão padrão
-@mixin button-style($bg-color, $text-color, $hover-bg: null) {
-  padding: 0.8rem 1.5rem;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  font-size: 1rem;
-  background-color: $bg-color;
-  color: $text-color;
-  transition: transform 0.2s ease-in-out, background-color 0.2s ease-in-out;
-
-  &:hover {
-    transform: scale(1.1);
-    background-color: if($hover-bg != null, $hover-bg, lighten($bg-color, 10%));
-  }
-
-  &:disabled {
-    background-color: $overlay-color;
-    cursor: not-allowed;
-  }
-}
-
-// Slider padrão
-@mixin slider-style(
-  $thumb-color,
-  $track-color,
-  $thumb-size: 30px,
-  $border-radius: 15px,
-  $thumb-shadow: $box-shadow
-) {
-  -webkit-appearance: none;
-  appearance: none;
-  width: 100%;
-  height: $thumb-size; // Altura da barra igual ao tamanho do thumb
-  background: $track-color;
-  border-radius: $border-radius;
-  outline: none;
-  transition: opacity 0.2s;
-
-  &:hover {
-    opacity: 1;
-  }
-
-  &::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    appearance: none;
-    width: $thumb-size;
-    height: $thumb-size;
-    background: $thumb-color;
-    border-radius: 4px; // Leve arredondamento nos cantos
-    cursor: pointer;
-    box-shadow: $thumb-shadow;
-    transition: transform 0.2s;
-
-    &:hover {
-      transform: scale(1.1);
-    }
-  }
-
-  &::-moz-range-thumb {
-    width: $thumb-size;
-    height: $thumb-size;
-    background: $thumb-color;
-    border-radius: 4px;
-    cursor: pointer;
-    box-shadow: $thumb-shadow;
-
-    &:hover {
-      transform: scale(1.1);
-    }
-  }
-
-  &::-ms-thumb {
-    width: $thumb-size;
-    height: $thumb-size;
-    background: $thumb-color;
-    border-radius: 4px;
-    cursor: pointer;
-    box-shadow: $thumb-shadow;
-
-    &:hover {
-      transform: scale(1.1);
-    }
-  }
-}
-
-// Texto padrão
-@mixin text-style($font-size, $color, $weight: normal) {
-  font-size: $font-size;
-  color: $color;
-  font-weight: $weight;
 }

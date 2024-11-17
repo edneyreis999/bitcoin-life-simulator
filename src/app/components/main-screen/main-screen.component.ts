@@ -20,7 +20,6 @@ export class MainScreenComponent {
 
   showEventNotification() {
     if (this.eventNotification) {
-      console.log('showing event notification');
       this.eventNotification.isVisible = true;
     }
   }

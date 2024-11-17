@@ -102,3 +102,14 @@ $box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
   color: $color;
   font-weight: $weight;
 }
+
+@mixin label-style($color: $text-color-light) {
+  font-size: 0.9rem;
+  color: $color;
+}
+
+@mixin value-style($color: $primary-color) {
+  font-size: 0.9rem;
+  color: $color;
+  font-weight: bold;
+}

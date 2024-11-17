@@ -12,10 +12,16 @@
   <div class="body">
     <!-- Transfer Funds -->
     <div class="transfer-funds">
-      <h3>Transfer Funds</h3>
+      <h3 class="section-title">Transfer Funds</h3>
       <div class="balances">
-        <div class="balance">Real Life: ${{ realLifeBalance }}</div>
-        <div class="balance">Investment: ${{ investmentBalance }}</div>
+        <div class="balance">
+          <span class="label">Real Life:</span>
+          <span class="value">${{ realLifeBalance }}</span>
+        </div>
+        <div class="balance">
+          <span class="label">Investment:</span>
+          <span class="value">${{ investmentBalance }}</span>
+        </div>
       </div>
       <input
         type="range"
@@ -26,8 +32,14 @@
         class="slider"
       />
       <div class="transfer-details">
-        <p>Amount to Transfer: ${{ transferAmount }}</p>
-        <p>Transaction Fee: ${{ transactionFee }}</p>
+        <p>
+          <span class="label">Amount to Transfer:</span>
+          <span class="value">${{ transferAmount }}</span>
+        </p>
+        <p>
+          <span class="label">Transaction Fee:</span>
+          <span class="value">${{ transactionFee }}</span>
+        </p>
       </div>
     </div>
 
